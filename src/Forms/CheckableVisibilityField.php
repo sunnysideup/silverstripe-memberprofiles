@@ -2,6 +2,7 @@
 
 namespace Symbiote\MemberProfiles\Forms;
 
+use SilverStripe\Core\Validation\ValidationResult;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Security\Member;
 use SilverStripe\ORM\DataObjectInterface;
@@ -82,7 +83,7 @@ class CheckableVisibilityField extends FormField
      * @param array|MemberProfileExtension $data {@see Form::loadDataFrom}
      * @return $this
      */
-    public function setValue(mixed $value, array $data = []): static
+    public function setValue(mixed $value, $data = null): static
     {
         $this->child->setValue($value);
 
@@ -123,9 +124,9 @@ class CheckableVisibilityField extends FormField
         $record->setPublicFields($public);
     }
 
-    public function validate($validator)
+    public function validate(): ValidationResult
     {
-        return $this->child->validate($validator);
+        return $this->child->validate();
     }
 
     public function Value(): ?string
@@ -150,7 +151,7 @@ class CheckableVisibilityField extends FormField
         return parent::setForm($form);
     }
 
-    public function Field(array $properties = []): DBHTMLText
+    public function Field($properties = []): DBHTMLText
     {
         return DBHTMLText::create_field(
             'HTMLFragment',

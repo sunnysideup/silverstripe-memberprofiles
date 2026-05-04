@@ -178,7 +178,7 @@ class MemberProfilePage extends Page
      *
      * @param string $action
      */
-    public function Link(?string $action = null)
+    public function Link($action = null)
     {
         if (!$action
             && Security::getCurrentUser()

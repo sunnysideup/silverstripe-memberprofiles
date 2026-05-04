@@ -2,6 +2,7 @@
 
 namespace Symbiote\MemberProfiles\Model;
 
+use SilverStripe\Forms\FieldList;
 use Symbiote\MemberProfiles\Pages\MemberProfilePage;
 use SilverStripe\Versioned\Versioned;
 use SilverStripe\Forms\ReadonlyField;
@@ -123,7 +124,7 @@ class MemberProfileSection extends DataObject
      *
      * @return string
      */
-    public function forTemplate(): mixed
+    public function forTemplate(): string
     {
         throw new Exception("Please implement forTemplate() on {get_class($this)}.");
     }
