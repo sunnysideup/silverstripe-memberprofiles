@@ -1,5 +1,5 @@
 {
-    "name": "symbiote/silverstripe-memberprofiles",
+    "name": "sunnysideup/silverstripe-memberprofiles",
     "description": "Member registration and profile management",
     "type": "silverstripe-vendormodule",
     "keywords": [
