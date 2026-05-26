@@ -95,6 +95,10 @@ class MemberProfileSection extends DataObject
      */
     public function getTitle(): string
     {
+        if (get_class($this) === self::class) {
+            return $this->CustomTitle ?: $this->i18n_singular_name();
+        }
+
         return $this->CustomTitle ?: $this->getDefaultTitle();
     }
 

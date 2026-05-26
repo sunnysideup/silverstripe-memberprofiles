@@ -225,8 +225,16 @@ class MemberProfileField extends DataObject
     public function getDefaultTitle(bool $force = true): string
     {
         $fields = $this->getMemberFields();
-        $field  = $fields->dataFieldByName($this->MemberField);
-        $title  = $field->Title();
+        $memberField = $this->MemberField;
+        if (! $memberField) {
+            return '';
+        }
+
+        $field = $fields->dataFieldByName($memberField);
+        if (! $field) {
+            return $force ? $memberField : '';
+        }
+        $title = $field->Title();
 
         if (!$title && $force) {
             $title = $field->getName();
